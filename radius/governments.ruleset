@@ -1,7 +1,7 @@
 
 [datafile]
 description             = "Governments for the radius ruleset"
-options                 = "+Freeciv-2.5-ruleset"
+options                 = "+Freeciv-2.6-ruleset"
 
 [governments]
 during_revolution       = "Anarchy"
@@ -115,5 +115,33 @@ Under Democracy, citizens govern directly by voting on issues.\
  Democracy offers the highest possible level of trade, but also\
  offers the most potential for unhappiness.  There is no corruption\
  during Democracy, but citizens become very upset during wars.\
+")
+
+[multipliers]
+;--------------------------------------------------------------------------- /*
+; Multipliers (aka policies)
+; name                  = translatable name as seen by user
+; rule_name             = optional (default: name) for savegames etc. if the
+;                         'name' in a released ruleset has to be changed
+; default               = default value (as presented in UI)
+; start                 = ditto minimum
+; stop                  = ditto maximum
+; step                  = ditto minimal change
+; offset                = \/ optional (defaults: offset=0, factor=100) to get
+; factor                = /\ effect_value = (ui_value + offset) * (factor/100)
+; helptext              = optional help text
+;--------------------------------------------------------------------------- */
+
+[multiplier_personal_freedom]
+name                    = _("Personal Freedom")
+start                   = 0
+stop                    = 5
+step                    = 1
+default                 = 0
+; /* xgettext:no-c-format */
+helptext                = _("\
+Each step of personal freedom you allow your citizens yields a 10% \
+increase in science output, but makes an additional citizen unhappy \
+for every aggressively deployed military unit.\
 ")
 

@@ -1,7 +1,16 @@
 
 [datafile]
 description             = "Add radius/native.ruleset in nationgroup Sisters"
-options                 = "+Freeciv-2.5-ruleset"
+options                 = "+Freeciv-2.6-ruleset"
+
+[ruledit]
+; Nationlist to add include statement for. If this entry is omitted, nations
+; will be saved to nations.ruleset itself.
+nationlist              = "default/nationlist.ruleset"
+
+; List of nations to embed to main nations.ruleset despite separate nationlist
+; being used for other nations.
+embedded_nations        = "barbarian", "pirate", "native"
 
 [compatibility]
 default_government      = "Despotism"
@@ -11,9 +20,25 @@ default_government      = "Despotism"
 ;allowed_city_styles     =               ; ... handled in included defaults.
 
 [default_traits]
-expansionist            = 50             ; JFTR, global default traits are
-trader                  = 50             ; used in classic/nation.rulesets
-aggressive              = 50             ; and match 50 50 50 implicitly
+; If a nation defines no trait values the defaults defined here are used.
+; If the server option 'traitdistribution' is FIXED (default) the values
+; defined as <trait>_default are used.  For EVEN distributions a random
+; value from <trait>_min up to <trait>_max is used.
+; The maximal trait value is 2500 (50*50).  For a missing <trait>_min or
+; <trait>_max the ultimate default is 50.  For a missing <trait>_default
+; the ultimate default is (min+max)/2.
+
+; Used as val/50 (daidomestic) or 50/val (aicity)
+expansionist_min         = 10            ; \/ FIXED default 40=(10+70)/2
+expansionist_max         = 70            ; /\
+
+; Used as val/50 (daieffects+daidomestic) or as is (daidomestic)
+trader_min               = 30            ; \/ FIXED default 60=(30+90)/2
+trader_max               = 90            ; /\
+
+; ONLY used as sqrt(val/50) in daidiplomacy
+aggressive_min           = 20            ; \/ FIXED default 50=(20+80)/2
+aggressive_max           = 80            ; /\
 
 ;[nset_full]
 ;name                    = _("?nationset:Full")
@@ -27,9 +52,10 @@ name                    = _("?nationgroup:Sisters")
 match                   = 2
 
 ; The included "default/nationlist.ruleset" defines the traditional
-; nation groups Medieval, Imaginary, Modern, Oceanian, etc. with the
-; required barbarian nations.
+; nation groups Medieval, Imaginary, Modern, Oceanian, etc.
 
 *include "default/nationlist.ruleset"
+*include "nation/barbarian.ruleset"
+*include "nation/pirate.ruleset"
 *include "radius/native.ruleset"
 

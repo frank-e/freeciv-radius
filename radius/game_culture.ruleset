@@ -1,0 +1,126 @@
+# this file is included by the radius/game.ruleset
+
+[culture]
+; Minimum culture points for cultural domination victory
+victory_min_points = 10000
+
+; How big lead relative to second best player is needed for victory
+victory_lead_pct   = 200
+
+; How much each culture point affects the migration
+; from/to the city. Each culture point count as this many permilles
+; of a migration point.
+migration_pml = 50
+
+[achievements]
+; /* <-- avoid gettext warnings
+;
+; Achievement types:
+;
+; name                    = translatable name as seen by user
+; rule_name               = (optional) name for savegames, rulesets etc; if not
+;                           present, 'name' is used. Since the name used in
+;                           savegames must not change, use this when renaming a
+;                           achievement after a ruleset has been released.
+; type                    = What event grants the achievement to player.
+;                           See README.achievements for list of these types.
+; unique                  = If TRUE, only first one reaching the achievement will
+;                           get it. Defaults to TRUE.
+; value                   = Value to reach. Exact meaning of this depends on
+;                           achievement type.
+; culture                 = Amount of culture granted to player who gets achievement
+;                           granted.
+; first_msg               = Message shown to first player gaining the achievement
+; cons_msg                = Message shown to consecutive players gaining the achievement
+;
+; */ <-- avoid gettext warnings
+
+[achievement_spaceship]
+name          = _("Spaceship Launch")
+type          = "Spaceship"
+unique        = FALSE
+culture       = 2000
+first_msg     = _("You have launched an interstellar spaceship"),       _("!")
+cons_msg      = _("You have launched an interstellar spaceship"),       _(".")
+
+[achievement_map_known]
+name          = _("Entire Map Known")
+type          = "Map_Known"
+unique        = FALSE
+value         = 100
+culture       = 1000
+first_msg     = _("You have mapped the entire world"),                  _("!")
+cons_msg      = _("You have mapped the entire world"),                  _(".")
+
+[achievement_map_known_50p]
+name          = _("Map Known 50 pct")
+type          = "Map_Known"
+unique        = FALSE
+value         = 50
+culture       = 200
+first_msg     = _("You have half of the world mapped"),                 _("!")
+cons_msg      = _("You have half of the world mapped"),                 _(".")
+
+[achievement_map_known_25p]
+name          = _("Map Known 25 pct")
+type          = "Map_Known"
+unique        = FALSE
+value         = 25
+culture       = 100
+first_msg     = _("You have a quarter of the world mapped"),            _("!")
+cons_msg      = _("You have a quarter of the world mapped"),            _(".")
+
+[achievement_12_huts_entered]
+name          = _("12 huts entered")
+type          = "Huts"
+unique        = FALSE
+value         = 12
+culture       = 100
+first_msg     = _("You have entered 12 huts"),                          _("!")
+cons_msg      = _("You have entered 12 huts"),                          _(".")
+
+[achievement_third_shore]
+name          = _("Land Ahoy")
+type          = "Land_Ahoy"
+unique        = FALSE
+value         = 4
+culture       = 100
+first_msg     = _("You sight your third foreign shore"),                _("!")
+cons_msg      = _("You sight your third foreign shore"),                _(".")
+
+[achievement_literate]
+name          = _("Public education")
+type          = "Literate"
+unique        = FALSE
+value         = 100
+culture       = 100
+first_msg     = _("You have libraries in all cities"),                  _("!")
+cons_msg      = _("You have libraries in all cities"),                  _(".")
+
+[achievement_international]
+name          = _("International")
+type          = "Multicultural"
+unique        = FALSE
+value         = 3
+culture       = 100
+first_msg     = _("Three nationalities live in one of your cities"),    _("!")
+cons_msg      = _("Three nationalities live in one of your cities"),    _(".")
+
+[achievement_metropolis]
+name          = _("Metropolis")
+type          = "Metropolis"
+unique        = FALSE
+value         = 42
+culture       = 100
+first_msg     = _("You have a city with population 42"),                _("!")
+cons_msg      = _("You have a city with population 42"),                _(".")
+
+[achievement_cultured_city]
+name          = _("Cultured City")
+type          = "Cultured_City"
+unique        = FALSE
+value         = 1000
+culture       = 100
+first_msg     = _("You have a city with 1000 culture points"),          _("!")
+cons_msg      = _("You have a city with 1000 culture points"),          _(".")
+

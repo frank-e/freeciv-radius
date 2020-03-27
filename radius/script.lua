@@ -26,7 +26,7 @@
 --]=]
 -- radius startup ------------------------------------------------------
 
-radius_vers       = 251                -- check 2.6.x incompatibilities
+radius_vers       = 261                -- check 3.0.x incompatibilities
 radius_city_sizes = {}                 -- max. seen city size per player
 
 function radius_info( msg, ... )       -- command echo green #006400
