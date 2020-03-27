@@ -1,6 +1,6 @@
 [nation_native]
 
-; This is an example nation ruleset for Freeciv 2.5.*
+; This is an example nation ruleset for Freeciv 2.6.*
 
 ; Nation rulesets are included by default/nationlist.ruleset, and
 ; this default nation list is included by classic/nations.ruleset,
@@ -57,7 +57,7 @@ ruler_titles =  {
 
 flag                    = "nato"
 flag_alt                = "aleut"
-city_style              = "Asian"
+style                   = "Asian"       ; was 2.5 city_style
 conflicts_with          = "aleut", "un"
 civilwar_nations        = "hacker", "aleut"
 

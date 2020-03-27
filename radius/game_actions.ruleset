@@ -1,0 +1,238 @@
+# this file is included by the radius/game.ruleset
+
+[actions]
+; If force_trade_route is set to TRUE it is illegal for an actor unit to
+; enter the marketplace of a city if it can establish a trade route to it
+; in stead.
+force_trade_route = FALSE
+
+; What each action should be called when showing them to the player.
+; The first %s should be before the mnemonic of the action.
+; The second %s marks where extra details should be inserted.
+
+; /* TRANS: _Poison City (3% chance of success). */
+ui_name_poison_city = _("%sPoison City%s")
+
+; /* TRANS: _Sabotage Enemy Unit (3% chance of success). */
+ui_name_sabotage_unit = _("%sSabotage Enemy Unit%s")
+
+; /* TRANS: _Bribe Enemy Unit (3% chance of success). */
+ui_name_bribe_unit = _("%sBribe Enemy Unit%s")
+
+; /* TRANS: _Sabotage City (3% chance of success). */
+ui_name_sabotage_city = _("%sSabotage City%s")
+
+; /* TRANS: Industrial _Sabotage (3% chance of success). */
+ui_name_targeted_sabotage_city = _("Industrial %sSabotage%s")
+
+; /* TRANS: Incite a _Revolt (3% chance of success). */
+ui_name_incite_city = _("Incite a %sRevolt%s")
+
+; /* TRANS: Establish _Embassy (100% chance of success). */
+ui_name_establish_embassy = _("Establish %sEmbassy%s")
+
+; /* TRANS: Steal _Technology (3% chance of success). */
+ui_name_steal_tech = _("Steal %sTechnology%s")
+
+; /* TRANS: Indus_trial Espionage (3% chance of success). */
+ui_name_targeted_steal_tech = _("Indus%strial Espionage%s")
+
+; /* TRANS: _Investigate City (100% chance of success). */
+ui_name_investigate_city = _("%sInvestigate City%s")
+
+; /* TRANS: Establish Trade _Route (100% chance of success). */
+ui_name_establish_trade_route = _("Establish Trade %sRoute%s")
+
+; /* TRANS: Sell _Goods (100% chance of success). */
+ui_name_enter_marketplace = _("Sell %sGoods%s")
+
+; /* TRANS: Help _build Wonder (100% chance of success). */
+ui_name_help_wonder = _("Help %sbuild Wonder%s")
+
+; Suppress automatic help text generation about what enables and/or
+; disables the following actions.
+;
+; Can make the help text less redundant when you document it your self.
+;quiet_actions = "Targeted Sabotage City", "Targeted Steal Tech"
+
+; /* <-- avoid gettext warnings
+;
+; Action enablers:
+;
+; action               = the action to enable.
+; actor_reqs           = requirements that apply to the actor.
+; target_reqs          = requirements that apply to the target.
+;
+; README.actions lists the possible actions and their hard coded
+; requirements.
+;
+; An action enabler is active when its actor_reqs AND its target_reqs are
+; satisfied.
+;
+; */ <-- avoid gettext warnings
+[actionenabler_sabotage_city]
+action = "Sabotage City"
+actor_reqs    =
+    { "type",   "name", "range"
+      "UnitFlag", "Diplomat", "Local"
+      "DiplRel", "War", "Local"
+      "UnitState", "OnLivableTile", "Local"
+      "MinMoveFrags", "1", "Local"
+    }
+
+[actionenabler_sabotage_city_target]
+action = "Targeted Sabotage City"
+actor_reqs    =
+    { "type",   "name", "range"
+      "DiplRel", "War", "Local"
+      "UnitFlag", "Spy", "Local"
+      "UnitState", "OnLivableTile", "Local"
+      "MinMoveFrags", "1", "Local"
+    }
+
+[actionenabler_establish_embassy]
+action       = "Establish Embassy"
+actor_reqs    =
+    { "type",   "name", "range"
+      "UnitFlag", "Diplomat", "Local"
+      "UnitState", "OnLivableTile", "Local"
+      "MinMoveFrags", "1", "Local"
+    }
+target_reqs  =
+    { "type",   "name", "range", "present"
+      "NationGroup", "Barbarian", "Player", FALSE
+    }
+
+[actionenabler_explorer_establish_embassy]
+action       = "Establish Embassy"
+actor_reqs    =
+    { "type",   "name", "range"
+      "UnitType", "Explorer", "Local"
+      "Tech", "Writing", "Player"
+      "UnitState", "OnLivableTile", "Local"
+      "MinMoveFrags", "1", "Local"
+    }
+target_reqs  =
+    { "type",   "name", "range", "present"
+      "NationGroup", "Barbarian", "Player", FALSE
+    }
+
+[actionenabler_investigate_city]
+action       = "Investigate City"
+actor_reqs    =
+    { "type",   "name", "range"
+      "UnitFlag", "Diplomat", "Local"
+      "UnitState", "OnLivableTile", "Local"
+      "MinMoveFrags", "1", "Local"
+    }
+
+[actionenabler_poison_city]
+action = "Poison City"
+actor_reqs    =
+    { "type",   "name", "range"
+      "UnitFlag", "Spy", "Local"
+      "DiplRel", "War", "Local"
+      "UnitState", "OnLivableTile", "Local"
+      "MinMoveFrags", "1", "Local"
+    }
+target_reqs    =
+    { "type",   "name", "range"
+      "MinSize", "2", "City"
+    }
+
+[actionenabler_steal_tech_random]
+action = "Steal Tech"
+actor_reqs    =
+    { "type",   "name", "range"
+      "UnitFlag", "Diplomat", "Local"
+      "UnitState", "OnLivableTile", "Local"
+      "MinMoveFrags", "1", "Local"
+    }
+target_reqs  =
+    { "type",   "name", "range", "present"
+      "NationGroup", "Barbarian", "Player", FALSE
+    }
+
+[actionenabler_steal_tech_target]
+action = "Targeted Steal Tech"
+actor_reqs    =
+    { "type",   "name", "range"
+      "UnitFlag", "Spy", "Local"
+      "UnitState", "OnLivableTile", "Local"
+      "MinMoveFrags", "1", "Local"
+    }
+target_reqs  =
+    { "type",   "name", "range", "present"
+      "NationGroup", "Barbarian", "Player", FALSE
+    }
+
+[actionenabler_incite_city]
+action = "Incite City"
+actor_reqs    =
+    { "type",   "name", "range", "present"
+      "UnitFlag", "Diplomat", "Local", TRUE
+      "DiplRel", "Alliance", "Local", FALSE
+      "DiplRel", "Team", "Local", FALSE
+      "UnitState", "OnLivableTile", "Local", TRUE
+      "MinMoveFrags", "1", "Local", TRUE
+    }
+target_reqs    =
+    { "type",   "name", "range", "present"
+      "Gov", "Democracy", "Player", FALSE
+      "Building", "Palace", "City", FALSE
+    }
+
+[actionenabler_bribe_unit]
+action = "Bribe Unit"
+actor_reqs    =
+    { "type",   "name", "range", "present"
+      "UnitFlag", "Diplomat", "Local", TRUE
+      "DiplRel", "Alliance", "Local", FALSE
+      "DiplRel", "Team", "Local", FALSE
+      "UnitState", "OnLivableTile", "Local", TRUE
+      "MinMoveFrags", "1", "Local", TRUE
+    }
+target_reqs    =
+    { "type",   "name", "range", "present"
+      "UnitFlag", "Unbribable", "Local", FALSE
+      "CityTile", "Center", "Local", FALSE
+      "Gov", "Democracy", "Player", FALSE
+    }
+
+[actionenabler_sabotage_unit]
+action = "Sabotage Unit"
+actor_reqs    =
+    { "type",   "name", "range"
+      "UnitFlag", "Spy", "Local"
+      "DiplRel", "War", "Local"
+      "UnitState", "OnLivableTile", "Local"
+      "MinMoveFrags", "1", "Local"
+    }
+target_reqs    =
+    { "type",   "name", "range", "present"
+      "CityTile", "Center", "Local", FALSE
+      "MinHitPoints", "2", "Local", TRUE
+    }
+
+[actionenabler_traderoute]
+action = "Establish Trade Route"
+actor_reqs    =
+    { "type",   "name", "range", "present"
+      "UnitFlag", "TradeRoute", "Local", TRUE
+    }
+
+[actionenabler_marketplace]
+action = "Enter Marketplace"
+actor_reqs    =
+    { "type",   "name", "range", "present"
+      "UnitFlag", "TradeRoute", "Local", TRUE
+    }
+
+[actionenabler_help_build_wonder]
+action = "Help Wonder"
+actor_reqs    =
+    { "type",   "name", "range", "present"
+      "UnitFlag", "HelpWonder", "Local", TRUE
+      "DiplRel", "Is foreign", "Local", FALSE
+    }
+
