@@ -1,6 +1,24 @@
 # freeciv-radius
 *Freeciv ruleset with a built-in tutorial by [dunnoob](https://freeciv.fandom.com/wiki/User:Dunnoob "dunnoob")*.
 
+```
+ The radius ruleset is based on the classic Freeciv rules
+ adopting many ideas from the experimental and civ2civ3
+ rulesets.  It features a growing city radius_sq from 4
+ to 20:
+    size   radius (sq.)   vision  squares (hexes)
+       1    4 = 2*2 + 0*0      5       13 (19)
+       4    5 = 2*2 + 1*1      8       21 (19)
+       9    8 = 2*2 + 2*2      9       25 (19)
+      16    9 = 3*3 + 0*0     10       29 (37)
+      25   10 = 3*3 + 1*1     13       37 (37)
+      36   13 = 3*3 + 2*2     16       45 (37)
+      49   16 = 4*4 + 0*0     17       49 (61)
+      64   17 = 4*4 + 1*1     18       57 (61)
+      81   18 = 3*3 + 3*3     20       61 (61)
+     100   20 = 4*4 + 2*2     25       69 (61)
+```
+
 1. Download version 2.5.1 released as [Last known good state 2019](https://github.com/frank-e/freeciv-radius/releases/tag/v2.5.1 "2.5.1").
 2. Download version 2.6.1 pre-released as [2017.07.11](https://github.com/frank-e/freeciv-radius/releases/tag/v2.6.1 "2.6.1").
 
