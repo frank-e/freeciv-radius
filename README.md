@@ -1,6 +1,9 @@
 # freeciv-radius
 *Freeciv ruleset with a built-in tutorial by [dunnoob](https://freeciv.fandom.com/wiki/User:Dunnoob "dunnoob")*.
 
+1. Download version 2.5.1 released as [Last known good state 2019](https://github.com/frank-e/freeciv-radius/releases/tag/v2.5.1 "2.5.1").
+2. Download version 2.6.1 pre-released as [2017.07.11](https://github.com/frank-e/freeciv-radius/releases/tag/v2.6.1 "2.6.1").
+
 ## Terrain ##
 ### Glacier ###
 In the standard rulesets (classic, experimental, civ2civ3) the transformation
