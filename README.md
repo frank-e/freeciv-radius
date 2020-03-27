@@ -1,7 +1,6 @@
 # freeciv-radius
 *Freeciv ruleset with a built-in tutorial by [dunnoob](https://freeciv.fandom.com/wiki/User:Dunnoob "dunnoob")*.
 
-
 ## Terrain ##
 ### Glacier ###
 In the standard rulesets (classic, experimental, civ2civ3) the transformation
