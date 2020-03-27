@@ -1,0 +1,10 @@
+README.radius   text
+radius.serv     text
+*.lua           text eol=lf
+*.ruleset       text eol=lf linguist-language=INI
+*.htm  text eol=lf
+*.html text eol=lf
+*.md   text eol=lf
+*.pdf -text
+*.png -text
+*.zip -text
