@@ -22,7 +22,12 @@
 1. Download version 2.5.1 released as [Last known good state 2019](https://github.com/frank-e/freeciv-radius/releases/tag/v2.5.1 "2.5.1").
 2. Download version 2.6.1 pre-released as [2017.07.11](https://github.com/frank-e/freeciv-radius/releases/tag/v2.6.1 "2.6.1").
 
-## Terrain ##
+## Features ##
+For comparison with the classic (2.x default) + experimental rulesets. 
+
+No plague, no fundamentalism, but migration is "almost" required, and you must 
+build a palace to get the palace reqired for governments better than despotism.
+
 ### Glacier ###
 In the standard rulesets (classic, experimental, civ2civ3) the transformation
 of mountains to plains takes 48 move points, e.g., 24 turns for one engineer.
@@ -103,6 +108,7 @@ a new number of move_fragments in the terrain.ruleset.
 
 ### Gold ###
  *Not up to date, maybe not yet working as expected (=stay below 10)*
+
 In this ruleset the trade bonus for gold is 5, or 7 with a tramway (150%).
 Railroads add 20% to any shield or trade bonus; this affects bonus 3 or 5:
 170% of 1, 2, or 4 is still 1 (1.7), 3 (3.4), or 6 (6.8); but 170% of 3 is
