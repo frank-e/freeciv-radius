@@ -1,0 +1,35 @@
+
+[datafile]
+description             = "Add radius/native.ruleset in nationgroup Sisters"
+options                 = "+Freeciv-2.5-ruleset"
+
+[compatibility]
+default_government      = "Despotism"
+
+;allowed_govs            = "Anarchy"     ; ... handled in included defaults.
+;allowed_terrains        = "Ocean"       ; ... handled in included defaults.
+;allowed_city_styles     =               ; ... handled in included defaults.
+
+[default_traits]
+expansionist            = 50             ; JFTR, global default traits are
+trader                  = 50             ; used in classic/nation.rulesets
+aggressive              = 50             ; and match 50 50 50 implicitly
+
+;[nset_full]
+;name                    = _("?nationset:Full")
+;rule_name               = "all"
+
+; The included "default/nationlist.ruleset" defines "core" and "all",
+; and this ruleset needs no additional nation sets.
+
+[ngroup_sisters]
+name                    = _("?nationgroup:Sisters")
+match                   = 2
+
+; The included "default/nationlist.ruleset" defines the traditional
+; nation groups Medieval, Imaginary, Modern, Oceanian, etc. with the
+; required barbarian nations.
+
+*include "default/nationlist.ruleset"
+*include "radius/native.ruleset"
+

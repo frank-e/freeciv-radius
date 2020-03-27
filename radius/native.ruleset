@@ -1,0 +1,86 @@
+[nation_native]
+
+; This is an example nation ruleset for Freeciv 2.5.*
+
+; Nation rulesets are included by default/nationlist.ruleset, and
+; this default nation list is included by classic/nations.ruleset,
+; civ2civ3/nations.ruleset, etc.
+
+; Your "personal" (example) ruleset with a personal/nations.ruleset
+; can include classic/nations.ruleset to get these classic nations
+; with the classic settings (traits, initial government, ...)
+
+; You can add  *include personal/native.ruleset (example) after this
+; to define a "native" nation as in this (complete) example.
+
+; The flags are normally defined by the tileset.  Amplio and small
+; tilesets include misc/flags.spec and misc/shields.spec for normal
+; flags and shields.  Amplio2 includes misc/flags_large.spec and
+; misc/shields_large.spec.  If the flags for your personal nations
+; are not covered by this procedure you can create a dummy tileset
+; and add the missing flags in the [sprites] section of any *.spec;
+; same idea as in the relevant misc/*.spec files.
+
+; You can also define flag_alt in your personal nation rulesets to
+; (ab)use the flag of another nation.  You can disable the nations
+; of these borrowed flag(s) as "conflict", see below for an example.
+
+name                    = _("Native")
+plural                  = _("?plural:Natives")
+groups                  = "Imaginary", "Sisters"
+legend                  = _("The Natives are an imaginary tribe abusing\
+ the Aleut flag if the unused NATO flag is unavailable.  Native cities\
+ get the Latin names of Greek letters (alpha, beta, etc.); no umlauts,\
+ no accents, no nonsense.  And one u+1F4A9 as basic giggle test.\
+")
+
+leaders =       {
+        "name",         "sex"
+        "Prima",        "Female"
+        "Secundus",     "Male"
+        "Snowwhite",    "Female"
+                }
+
+ruler_titles =  {
+        "government",   "male_title",           "female_title"
+        "Anarchy",      _("Seer %s"),           _("?female:Seer %s")
+        "Despotism",    _("Sorcerer %s"),       _("Sorceress %s")
+        "Monarchy",     _("Duke %s"),           _("Duchess %s")
+        "Republic",     _("Regent %s"),         _("?female:Regent %s")
+        "Democracy",    _("Professor %s"),      _("?female:Professor %s")
+        "Communism",    _("Commissar %s"),      _("?female:Commissar %s")
+    "Fundamentalism",   _("Father %s"),         _("Mother %s")
+                }
+
+; Try to get the (existing and unused) NATO flag if possible;
+; its name matches "nat".  Otherwise steal the nice Aleut flag.
+
+flag                    = "nato"
+flag_alt                = "aleut"
+city_style              = "Asian"
+conflicts_with          = "aleut", "un"
+civilwar_nations        = "hacker", "aleut"
+
+; Optional: suggested border color, e.g., dominant flag color.
+; The border color is also used as player color in the mini-
+; map:  Almost white (ice), blue (water), gray (mountains),
+; or green (land) colors are bad choices.  NATO blue for the
+; natives turned out to be a bad idea. :-(
+
+;color.r                 =    1          ; #012169 NATO blue
+;color.g                 =   33          ;  0x21 (dec. works)
+;color.b                 =  105          ;  0x69 (hex. fails)
+
+init_techs              = ""
+init_buildings          = ""
+init_units              = ""
+
+cities =
+ "Omega",       "Alpha",        "Beta",         "Gamma",
+ "Delta",       "Epsilon",      "Zeta",         "Eta",
+ "Theta",       "Iota",         "Kappa",        "Lambda",
+ "Mu",          "Nu",           "Xi",           "Omicron",
+ "Pi",          "Rho",          "Sigma",        "Tau",
+ "Upsilon",     "Phi",          "Chi",          "Psi",
+ "💩 (swamp, !river, !ocean, !lake)"  ; u+1F4A9
+
